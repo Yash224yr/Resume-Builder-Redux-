@@ -6,6 +6,7 @@ import Home from './Home'
 import Header from './Header'
 import Register from './Register/Register'
 import Login from './Register/Login'
+import Authentication from './Authentication'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route  path='/' element={<Home/>} ></Route>
           <Route path='/register' element={<Register/>} ></Route>
           <Route path='/login' element={<Login/>} ></Route>
+          <Route path='/auth' element={<Authentication/>} ></Route>
         </Routes>
     </Provider>
     </BrowserRouter>
