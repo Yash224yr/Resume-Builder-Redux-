@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
+}
+
+
+/* Header */
+
+
+header{
+  height: 10vh;
+    display: flex;
+    justify-content: space-between;   
+    padding: 0 3rem ;
+    align-items: center;
+}
+
+header ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+header ul li{
+  margin: 0 8px ;
+  position: relative;
+}
+
+header ul li a{
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  transition: 0.5s ease;
+  font-weight: 600;
+}
+
+header ul li a:hover{
+  color: rgb(29 136 237);
+}
+
+
+header .login-done h1 {
+  color: black;
+}
+
+header .log-out {
+  display: flex;
+}
+
+header .log-in {
+  display: flex;
+  justify-content: center;
+}
+
+header .log-in button a {
+  text-decoration: none;
+  color: white;
+}
+
+header .log-in button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+header .log-in button:hover {
+  background-color: #555;
+}
+
+header .log-in button:first-of-type {
+  background-color: #ff9800;
+}
+
+header .log-in button:first-of-type:hover{
+  background-color: #ffac33;
+}
+
+
+header .log-out {
+  display: flex;
+  align-items: center;
+}
+
+header .log-out h1 {
+  margin-right: 10px;
+}
+
+header .log-out button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header .log-out button:hover {
+  background-color: #555;
+}
+
+
+header .logo img {
+  width: 10%;
+}
+
+
+
+/* Home */
+
+
+.homepage {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 8rem;
+}
+
+.homepage .home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 60%;
+  margin: auto;
+}
+
+
+.homepage .home h1 {
+  font-size: 3.2rem;
+  margin: 1rem 0;
+  color: #13287e;
+  text-align: start;
+  width: 70%;
+}
+
+
+
+.homepage .home p {
+  font-size: 1.2rem;
+  color: black;
+  margin: 1rem 0;
+  text-align: justify;
+  width: 90%;
+}
+
+.homepage button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #183153;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border: none;
+  width: 25%;
+  margin: 3rem auto;
+
+}
+
+.homepage button:after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background: #FFD401;
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
+}
+
+.homepage button:hover::after {
+  right: auto;
+  left: 0;
+  width: 100%;
+}
+
+.homepage button span {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  padding: 18px 0px;
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.homepage button:hover span {
+  color: #183153;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.homepage .home button a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+.homepage .images {
+  background-image: url("./images/home.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40%;
+  height: 100%;
+  animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,24 +1,19 @@
 import React from 'react'
-import { useSelector , useDispatch } from 'react-redux'
-import { increase } from './Features/resumeSlice'
+import { Link } from "react-router-dom"
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 function Home() {
-
-    const dispatch = useDispatch()
-    const selector = useSelector((state)=>{
-        return state.resume
-    })
-
   return (
-    <div className='home' >
-        <div className='content' >
-
-        </div>
-        <div className='image' >
-            
-        </div>
+    <div className='homepage'>
+      <div className='home' >
+        <h1>Create Your Professional Resume with Ease</h1>
+        <p>Build a standout resume that opens doors to opportunities. Our intuitive resume builder empowers you to effortlessly craft a personalized and professional resume that showcases your unique skills, experience, and achievements.</p>
+        <button><Link to="/register" ><span>Get Started <ArrowRightIcon /> </span> </Link></button>
+      </div>
+      <div className='images' >
+      </div>
     </div>
   )
 }
 
-export default Home
+export default Home 
