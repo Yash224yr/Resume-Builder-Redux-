@@ -30,7 +30,7 @@ function Register() {
         </form>
         <div className='google' >
           <h3>Or Login with</h3>
-          <button>Gmail  <span><GoogleIcon/></span> </button>
+          <button> <span><GoogleIcon/></span>  Sign up with Google</button>
         </div>
       </div>
            
