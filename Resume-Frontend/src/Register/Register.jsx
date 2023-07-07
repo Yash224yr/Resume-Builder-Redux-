@@ -17,18 +17,19 @@ function Register() {
   return (
     <div className='register'  >
       <div className='register-box' >
-      <form  onSubmit={handlersubmit} >
-            <input type="text" placeholder='Enter Password' value={name} onChange={(e)=>{dispatch(updateName(e.target.value))}} />
-            <input type="text" placeholder='Enter Your Email' value={email} onChange={(e)=>{dispatch(updateEmail(e.target.value))}} />
-            <input type="password" placeholder='Enter Password' value={password} onChange={(e)=>{dispatch(updatePassword(e.target.value))}} />
-            <Link type='submit' ><button>Register</button></Link>
-        </form>
+        <p>Sign Up To jobSage </p>
         <div className='login' > 
           <h2>Already have an account ? </h2>
           <Link>Login</Link>
         </div>
+      <form  onSubmit={handlersubmit} >
+            <input type="text" placeholder='Enter Your Name' value={name} onChange={(e)=>{dispatch(updateName(e.target.value))}} />
+            <input type="text" placeholder='Enter Your Email' value={email} onChange={(e)=>{dispatch(updateEmail(e.target.value))}} />
+            <input type="password" placeholder='Enter Password' value={password} onChange={(e)=>{dispatch(updatePassword(e.target.value))}} />
+            <Link type='submit' ><button>Register</button></Link>
+        </form>
         <div className='google' >
-          <h1>Or Login with</h1>
+          <h3>Or Login with</h3>
           <button>Gmail  <span><GoogleIcon/></span> </button>
         </div>
       </div>

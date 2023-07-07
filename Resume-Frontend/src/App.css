@@ -255,16 +255,83 @@ header .logo img {
 
 /* register */
 
-.register{
-  height: 90vh;
+/* register.css */
+
+.register {
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 5rem;
 }
-.register-box {
-  background-color: #f5f5f5;
+
+.register .register-box {
+  background-color: #f1f1f1;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  animation: slide-in 0.5s ease-out;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
+.register .register-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register .register-box input {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.register .register-box button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.register .register-box button:hover {
+  background-color: #45a049;
+}
+
+.register .register-box .login{
+  margin: 0.5rem 0;
+}
+
+.register .login a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.register .login a:hover {
+  color: #0056b3;
+}
+
+.register .register-box .google h3{
+  text-align: center;
+}
+ 
+
+.
+
+.register .google button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #db4a39;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register .google button:hover {
+  background-color: #c53728;
+}
+
+.register .google span {
+  margin-left: 5px;
+}
+
