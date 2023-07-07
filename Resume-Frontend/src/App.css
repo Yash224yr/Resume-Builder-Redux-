@@ -265,10 +265,10 @@ header .logo img {
 }
 
 .register .register-box {
-  background-color: #f1f1f1;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
   width: 100%;
   height: 100%;
   display: flex;
@@ -318,12 +318,11 @@ header .logo img {
   color: #0056b3;
 }
 
-.register .register-box .google h3{
+ 
+.register .register-box .google p{
   text-align: center;
   margin: 0.5rem 0;
 }
- 
-
 
 
 .register .google button{
@@ -365,7 +364,10 @@ header .logo img {
 
 .auth-box .image{
   height: 100%;
-  width: 70%;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .auth-box .form{

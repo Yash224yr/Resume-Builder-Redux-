@@ -17,9 +17,9 @@ function Register() {
   return (
     <div className='register'  >
       <div className='register-box' >
-        <p>Sign Up To jobSage </p>
+        <h2>Sign Up To jobSage </h2>
         <div className='login' > 
-          <h2>Already have an account ? </h2>
+          <p>Already have an account ? </p>
           <Link>Login</Link>
         </div>
       <form  onSubmit={handlersubmit} >
@@ -29,7 +29,7 @@ function Register() {
             <Link type='submit' ><button>Register</button></Link>
         </form>
         <div className='google' >
-          <h3>Or Login with</h3>
+          <p>Or Login with</p>
           <button> <span><GoogleIcon/></span>  Sign up with Google</button>
         </div>
       </div>
