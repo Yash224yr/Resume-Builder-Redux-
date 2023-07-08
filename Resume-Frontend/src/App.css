@@ -257,14 +257,15 @@ header .logo img {
 
 /* register.css */
 
-.register {
+.register , .login {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100%;
+  margin-top:  5rem;
 }
 
-.register .register-box {
+.register .register-box , .login .login-box {
   padding: 20px;
   border-radius: 5px;
   background-color: #fff;
@@ -275,22 +276,23 @@ header .logo img {
   flex-direction: column;
   justify-content: center;
 }
-.register .register-box p{
+
+.register .register-box p , .login .login-box p{
   font-size: 1.5rem;
   font-weight: 500;
 }
 
-.register .register-box form {
+.register .register-box form , .login .login-box form {
   display: flex;
   flex-direction: column;
 }
 
-.register .register-box input {
+.register .register-box input , .login .login-box input {
   padding: 10px;
   margin-bottom: 10px;
 }
 
-.register .register-box button {
+.register .register-box button , .login .login-box button {
   padding: 10px;
   background-color: #4caf50;
   color: white;
@@ -300,32 +302,32 @@ header .logo img {
   width: 100%;
 }
 
-.register .register-box button:hover {
+.register .register-box button:hover , .login .login-box button:hover {
   background-color: #45a049;
 }
 
-.register .register-box .login{
+.register .register-box .get-login , .login .login-box .get-register{
   margin: 0.5rem 0;
 }
 
-.register .login a {
+.register .get-login a , .login .get-register a{
   color: #007bff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.register .login a:hover {
+.register .get-login a:hover  , .login .get-register a:hover{
   color: #0056b3;
 }
 
  
-.register .register-box .google p{
+.register .register-box .google p , .login .login-box .google p{
   text-align: center;
   margin: 0.5rem 0;
 }
 
 
-.register .google button{
+.register .google button , .login .google button{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -337,11 +339,11 @@ header .logo img {
   transition: background-color 0.3s ease;
 }
 
-.register .google button:hover {
+.register .google button:hover , .login .google button:hover {
   background-color: #c53728;
 }
 
-.register .google span {
+.register .google span , .login .google span  {
   margin-right: 5px;
 }
 
