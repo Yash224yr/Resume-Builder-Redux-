@@ -15,7 +15,7 @@ function Home() {
           Build a standout resume that opens doors to opportunities. Our intuitive resume builder empowers you to effortlessly craft a personalized and professional resume that showcases your unique skills, experience, and achievements.
         </p>
         <button>
-          <Link to="/auth">
+          <Link to="/register">
             <span>Get Started <ArrowRightIcon /></span>
           </Link>
         </button>
