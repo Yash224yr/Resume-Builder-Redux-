@@ -363,6 +363,7 @@ header .logo img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #F0F0F0;
 }
 
 .features .title h1{
