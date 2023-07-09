@@ -61,6 +61,10 @@ header .log-in button a {
   color: white;
 }
 
+
+
+
+
 header .log-in button {
   background-color: #333;
   color: #fff;
@@ -72,17 +76,20 @@ header .log-in button {
   transition: background-color 0.3s ease;
 }
 
+header button a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header button a svg{
+  margin-left: 5px;
+}
+
 header .log-in a button:hover {
   background-color: #555;
 }
 
-header .log-in button:first-of-type {
-  background-color: #ff9800;
-}
-
-header .log-in button:first-of-type:hover{
-  background-color: #ffac33;
-}
 
 
 header .log-out {

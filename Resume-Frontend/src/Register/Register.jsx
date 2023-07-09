@@ -20,7 +20,7 @@ function Register() {
         <h2>Sign Up To jobSage </h2>
         <div className='get-login' >
           <p>Already have an account ? </p>
-          <Link>Login</Link>
+          <Link  to="/login"  >Login</Link>
         </div>
         <form onSubmit={handlersubmit} >
           <input type="text" placeholder='Enter Your Name' value={name} onChange={(e) => { dispatch(updateName(e.target.value)) }} />

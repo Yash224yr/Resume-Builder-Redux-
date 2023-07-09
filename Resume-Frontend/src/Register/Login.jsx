@@ -21,7 +21,7 @@ function Login() {
         <h2>Login To jobSage </h2>
         <div className='get-register' >
           <p>Don't Have an Account ? </p>
-          <Link>Sign Up</Link>
+          <Link to="/register">Sign Up</Link>
         </div>
         <form onSubmit={handlersubmit} >
           <input type="text" placeholder='Enter your Email' value={loginEmail} onChange={(e) => { dispatch(updateloginEmail(e.target.value)) }} />

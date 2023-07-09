@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from "./images/logo.png"
+import LoginIcon from '@mui/icons-material/Login';
+// import LogoutIcon from '@mui/icons-material/Logout';
 
 
 function Header() {
@@ -21,8 +23,7 @@ function Header() {
                         <li><Link to="/" >Home</Link></li>
                         <li><Link>Detail</Link></li>
                     </ul>
-                    <button><Link to="/register" >Register</Link></button>
-                    <button><Link to='/login'>Login</Link></button>
+                    <button><Link to='/login'>Login <LoginIcon/>  </Link></button>
                 </div>
 
             </div>
