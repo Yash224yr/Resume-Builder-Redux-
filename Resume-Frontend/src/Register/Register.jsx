@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { updateEmail, updatePassword, updateName } from '../Features/resumeSlice'
 import { useSelector, useDispatch } from 'react-redux'
@@ -6,8 +6,14 @@ import GoogleIcon from '@mui/icons-material/Google';
 
 function Register() {
 
+  const inputRef = useRef()
+
   const { email, password, name } = useSelector(state => state.resume.register)
   const dispatch = useDispatch()
+
+  useEffect(()=>{
+      inputRef.current.focus()
+  },[])
 
   function handlersubmit(e) {
     e.preventDefault()
@@ -23,7 +29,7 @@ function Register() {
           <Link  to="/login"  >Login</Link>
         </div>
         <form onSubmit={handlersubmit} >
-          <input type="text" placeholder='Enter Your Name' value={name} onChange={(e) => { dispatch(updateName(e.target.value)) }} />
+          <input type="text" ref={inputRef} placeholder='Enter Your Name' value={name} onChange={(e) => { dispatch(updateName(e.target.value)) }} />
           <input type="text" placeholder='Enter Your Email' value={email} onChange={(e) => { dispatch(updateEmail(e.target.value)) }} />
           <input type="password" placeholder='Enter Password' value={password} onChange={(e) => { dispatch(updatePassword(e.target.value)) }} />
           <Link type='submit' ><button>Register</button></Link>
