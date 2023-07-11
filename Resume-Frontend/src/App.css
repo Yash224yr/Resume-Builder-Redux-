@@ -284,9 +284,14 @@ header .logo img {
   justify-content: center;
 }
 
-.register .register-box p , .login .login-box p{
+.register .register-box .get-login p , .login .login-box .get-register p{
   font-size: 1.5rem;
   font-weight: 500;
+}
+
+.error-fill{
+  color: red;
+  margin: 5px 0;
 }
 
 .register .register-box form , .login .login-box form {
@@ -404,4 +409,22 @@ header .logo img {
 
 .feature-box .image img{
   width: 100%;
+}
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.popup p {
+  margin-bottom: 10px;
+  text-align: end;
+}
+
+.popup button {
+  padding: 8px 16px;
 }

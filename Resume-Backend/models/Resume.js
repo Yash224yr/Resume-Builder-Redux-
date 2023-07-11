@@ -10,6 +10,6 @@ const ResumeSchema = new mongoose.Schema({
     }
 })
 
-const User = mongose.model("User", ResumeSchema)
+const User = mongoose.model("User", ResumeSchema)
 
 export default User
