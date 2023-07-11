@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { updateloginEmail, updateloginPassword, updateLogin } from '../Features/resumeSlice'
+import { updateloginEmail, updateloginPassword, updateuser } from '../Features/resumeSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import GoogleIcon from '@mui/icons-material/Google';
 import axios from 'axios';
@@ -15,7 +15,10 @@ function Login() {
   const inputRef = useRef()
 
   const { email, password } = useSelector(state => state.resume.login)
-  const { name } = useSelector(state => state.resume.header)
+  const {username} = useSelector(state => state.resume.user)
+
+
+
   const dispatch = useDispatch()
 
   
@@ -49,7 +52,7 @@ function Login() {
             }
           })
           .then((response) => {
-            dispatch(updateLogin(response.data.name))
+            dispatch(updateuser(response.data.name))
             JSON.stringify(
               localStorage.setItem("name", response.data.name)
             )

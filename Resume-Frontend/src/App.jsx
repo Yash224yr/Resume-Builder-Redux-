@@ -14,8 +14,8 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Header></Header>
     <Provider store={Store}>
+    <Header></Header>
         <Routes>
           <Route  path='/' element={<HomeDefault/>} ></Route>
           <Route path='/register' element={<Register/>} ></Route>

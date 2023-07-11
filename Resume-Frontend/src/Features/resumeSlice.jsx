@@ -15,8 +15,8 @@ export const resumeSlice = createSlice({
             password : "",
         },
 
-        header : {
-            name : "",
+        user : {
+            username : "",
         }
 
 
@@ -45,16 +45,12 @@ export const resumeSlice = createSlice({
             state.login.password = action.payload
         },
 
-        updateLogin : (state, action) =>{
-            state.header.name = action.payload
+        updateuser : (state, action) =>{
+            state.user.username = action.payload
         }
-
-        
-
-
     }
 })
 
-export const {updateEmail , updatePassword , updateName , updateloginEmail , updateloginPassword , updateLogin} = resumeSlice.actions
+export const {updateEmail , updatePassword , updateName , updateloginEmail , updateloginPassword , updateuser} = resumeSlice.actions
 
 export default resumeSlice.reducer
