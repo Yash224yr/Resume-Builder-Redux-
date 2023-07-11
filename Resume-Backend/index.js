@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import bcrypt from "bcrypt";
-import Jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import User from "./models/Resume.js";
 
@@ -48,6 +48,31 @@ app.post("/register", (req, res) => {
     .catch((error) => res.json({ error: error.message }));
 });
 
+
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (isMatch) {
+        // Generate a JWT token
+        const token = jwt.sign({ email: user.email }, "your-secret-key", {
+          expiresIn: "1h", // Token expiration time
+        });
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: 'strict' });
+        res.status(200).json({ message: "Login successful", token });
+
+      } else {
+        res.status(401).json({ message: "Invalaid username or password" });
+      }
+    } else {
+      res.status(401).json({ message: "Invalid username or password" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 
 
 app.listen(3000, () => {

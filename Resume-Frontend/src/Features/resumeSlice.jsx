@@ -11,8 +11,8 @@ export const resumeSlice = createSlice({
         },
 
         login : {
-            loginEmail : "",
-            loginPassword : "",
+            email : "",
+            password : "",
         }
     } ,
 
@@ -32,11 +32,11 @@ export const resumeSlice = createSlice({
         },
 
         updateloginEmail : (state , action) => {
-            state.login.loginEmail = action.payload
+            state.login.email = action.payload
         },
 
         updateloginPassword : (state , action) =>{
-            state.login.loginPassword = action.payload
+            state.login.password = action.payload
         },
 
 
