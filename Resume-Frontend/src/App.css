@@ -108,7 +108,26 @@ header .log-out button {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+header .log-out svg{
+  margin-left: 5px;
+}
+
+header .log-out h1{
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* header .log-out h1 svg{
+  font-size: 2rem;
+  margin-right: 5px;
+} */
 
 header .log-out button:hover {
   background-color: #555;

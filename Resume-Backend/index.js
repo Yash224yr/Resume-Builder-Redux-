@@ -75,6 +75,24 @@ app.post("/login", async (req, res) => {
 });
 
 
+
+app.get('/user', (req, res) => {
+  const { email } = req.query;
+  User.findOne({ email })
+    .select("name")
+    .then(user => {
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+      const userData = { name: user.name };
+      res.status(200).json(userData);
+    })
+    .catch(error => {
+      res.status(500).json({ error: 'Internal server error' });
+    });
+});
+
+
 app.listen(3000, () => {
   console.log("Server connected to port 3000");
 });

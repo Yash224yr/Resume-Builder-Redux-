@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { updateloginEmail, updateloginPassword } from '../Features/resumeSlice'
+import { updateloginEmail, updateloginPassword, updateLogin } from '../Features/resumeSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import GoogleIcon from '@mui/icons-material/Google';
 import axios from 'axios';
@@ -15,9 +15,10 @@ function Login() {
   const inputRef = useRef()
 
   const { email, password } = useSelector(state => state.resume.login)
+  const { name } = useSelector(state => state.resume.header)
   const dispatch = useDispatch()
 
-
+  
 
   useEffect(() => {
     inputRef.current.focus()
@@ -40,14 +41,29 @@ function Login() {
         dispatch(updateloginEmail(""))
         dispatch(updateloginPassword(""))
         setPopUp(response.data.message)
-        
+        localStorage.setItem("token", response.data.token)
+        axios
+          .get(`http://localhost:3000/user?email=${email}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+          })
+          .then((response) => {
+            dispatch(updateLogin(response.data.name))
+            JSON.stringify(
+              localStorage.setItem("name", response.data.name)
+            )
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err)
       })
   }
 
-  function handlerdone(){
+  function handlerdone() {
     setPopUp("")
   }
 
