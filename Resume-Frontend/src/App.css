@@ -281,7 +281,7 @@ header .logo img {
 
 /* register */
 
-/* register.css */
+
 
 .register , .login {
   display: flex;
@@ -447,3 +447,53 @@ header .logo img {
 .popup button {
   padding: 8px 16px;
 }
+
+/* Resume */
+
+.resume{
+  display: flex;
+  position: relative;
+}
+
+
+
+.resume .section-1 {
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  max-height: 100vh; /* Set maximum height to 100vh */
+  overflow-y: auto;
+  width: 25%;
+}
+.resume .section-1::-webkit-scrollbar {
+  width: 0.5em; /* Adjust the width as needed */
+}
+
+.resume .section-1::-webkit-scrollbar-track {
+  background-color: transparent; /* Set the background color of the track */
+}
+
+.resume .section-1::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Set the color of the thumb */
+}
+.resume .section-2 {
+  position: fixed;
+  top: 10vh;
+  left: 25%;
+  max-height: 100vh; /* Set maximum height to 100vh */
+  overflow-y: auto;
+  width: 55%;
+}
+.resume .section-3 {
+  position: fixed;
+  top: 10vh;
+  right: 0;
+  max-height: 100vh; /* Set maximum height to 100vh */
+  overflow-y: auto;
+  width: 20%;
+}
+
+
+
+/* Details */
+

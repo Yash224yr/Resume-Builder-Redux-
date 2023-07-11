@@ -7,6 +7,7 @@ import Header from './Header'
 import Register from './Register/Register'
 import Login from './Register/Login'
 import HomeDefault from './HomeDefault'
+import Resume from './Resume'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route  path='/' element={<HomeDefault/>} ></Route>
           <Route path='/register' element={<Register/>} ></Route>
           <Route path='/login' element={<Login/>} ></Route>
+          <Route path='/resume' element={<Resume/>} ></Route>
         </Routes>
     </Provider>
     </BrowserRouter>

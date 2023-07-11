@@ -24,7 +24,6 @@ export const resumeSlice = createSlice({
 
 
     reducers : {
-        
         updateName : (state , action) => {
             state.register.name = action.payload
         },
