@@ -495,11 +495,12 @@ header .logo img {
   position: fixed;
   top: 10vh;
   left: 35%;
-  max-height: 90vh;
+  min-height: 90vh;
   overflow-y: auto;
   width: 65%;
-  padding: 20px;
-  background-color: #ffffff;
+  padding: 20px 4rem;
+  background-color: rgba(238 , 240 , 244 , 1);
+
 }
 
 .resume .section-2 h2 {
@@ -595,5 +596,11 @@ textarea{
 }
 
 
+/* Template */
+
+.template-1{
+  background-color: rgb(255, 255, 255);
+  margin-top: 1rem;
+}
 
 

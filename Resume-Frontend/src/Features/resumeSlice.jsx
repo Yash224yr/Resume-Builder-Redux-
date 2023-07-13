@@ -1,55 +1,76 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const resumeSlice = createSlice({
-    name : "resume" ,
+    name: "resume",
 
-    initialState : {
-        register : {
-            name : "",
+    initialState: {
+        register: {
+            name: "",
             email: "",
-            password : "",
+            password: "",
         },
 
-        login : {
-            email : "",
-            password : "",
+        login: {
+            email: "",
+            password: "",
         },
 
-        user : {
-            username : "",
+        user: {
+            username: "",
+        },
+
+        UserInfo: {
+            Name: "",
+            Title: "",
+            Email: "",
+            Number: "",
+            Location: "",
+        },
+
+        customisation  : {
+            InfoNamefont : ""
         }
 
 
-    } ,
+    },
 
 
-    reducers : {
-        updateName : (state , action) => {
+    reducers: {
+        updateName: (state, action) => {
             state.register.name = action.payload
         },
 
-        updateEmail : (state, action) => {
-            state.register.email = action.payload   
+        updateEmail: (state, action) => {
+            state.register.email = action.payload
         },
 
-        updatePassword : (state, action) => {
+        updatePassword: (state, action) => {
             state.register.password = action.payload
         },
 
-        updateloginEmail : (state , action) => {
+        updateloginEmail: (state, action) => {
             state.login.email = action.payload
         },
 
-        updateloginPassword : (state , action) =>{
+        updateloginPassword: (state, action) => {
             state.login.password = action.payload
         },
 
-        updateuser : (state, action) =>{
+        updateuser: (state, action) => {
             state.user.username = action.payload
-        }
+        },
+
+        updateUserInfo: (state, action) => {
+            const { property, value } = action.payload;
+            state.UserInfo[property] = value;
+        },
+
+       
     }
 })
 
-export const {updateEmail , updatePassword , updateName , updateloginEmail , updateloginPassword , updateuser} = resumeSlice.actions
+export const {
+    updateEmail, updatePassword, updateName, updateloginEmail, updateloginPassword, updateuser, updateUserInfo 
+} = resumeSlice.actions
 
 export default resumeSlice.reducer
