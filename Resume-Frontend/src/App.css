@@ -463,7 +463,7 @@ header .logo img {
   max-height: 90vh;
   overflow-y: auto;
   width: 35%;
-  padding: 5px;
+  padding: 10px;
   background-color: #9376e0;
 }
 .resume .section-1::-webkit-scrollbar {
@@ -521,7 +521,7 @@ header .logo img {
 }
 
 .info {
-  padding: 20px;
+  padding: 15px;
   background-color: #f2f2f2;
   border-radius: 5px;
   margin: 5px 0;
@@ -572,6 +572,14 @@ header .logo img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+textarea{
+  width: 95%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
  input {
