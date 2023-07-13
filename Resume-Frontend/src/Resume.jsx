@@ -1,21 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Details from './Resume/Details'
 import Template from './Resume/Template'
+import { useSelector } from 'react-redux'
 import Customize from './Resume/Customize'
-import content from "./images/content.png"
-import customisation from "./images/customisation.png"
-import customisation2 from "./images/customisation-2.png"
+
+
+
 
 function Resume() {
 
+    const [change, Switch] = useState("")
 
- 
+    function handleswitch(update) {
+        Switch(update)
+    }
+
+    useEffect(() => {
+        Switch("content")
+    }, [])
+
 
     return (
         <div className='resume' >
             <div className='section-1'>
-                <Details></Details>
-                {/* <Customize></Customize> */}
+                <div className='switch' >
+                    <button onClick={() => { handleswitch("content") }} >Content </button>
+                    <button onClick={() => { handleswitch("custom") }} >Customisation</button>
+                </div>
+                {
+                    change === "content" ? (
+                        <Details></Details>
+                    ) : (
+                        <Customize></Customize>
+                    )
+                }
             </div>
             <div className='section-2' >
                 <Template></Template>

@@ -4,14 +4,21 @@ import { useSelector } from 'react-redux'
 
 function Templateone() {
 
-    const {Name} = useSelector(state => state.resume.UserInfo)
+    const {Name , Title , Email , Number , Location} = useSelector(state => state.resume.UserInfo)
 
   return (
     <div className='template-1' >
-        <div className='name' >
-            
+        <div className='template-header' >
+            <div className='name' >
+                    <h1>{Name}</h1>
+                    <h2>{Title}</h2>
+            </div>
+            <div className='contact' >
+                <p>{Email}</p>
+                <p>{Number}</p>
+                <p>{Location}</p>
+            </div>
         </div>
-            <h1>{Name}</h1>
     </div>
   )
 }

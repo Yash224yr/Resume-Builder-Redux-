@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {updateUserInfo} from '../Features/resumeSlice';
@@ -16,11 +16,15 @@ function Details() {
     Number,
     Location } = useSelector(state => state.resume.UserInfo)
 
-    console.log(Name)
+ 
+
 
   function handlerShow(section) {
     setShow(show => (show === section ? "" : section))
   }
+
+ 
+ 
 
   return (
     <div className="details">
@@ -29,10 +33,10 @@ function Details() {
         <div className={`form ${show === "info" ? 'show' : ''}`}>
           <form>
             <input type="text" placeholder='Enter Your Name' value={Name}  onChange={(e)=> dispatch(updateUserInfo({ property: 'Name', value: (e.target.value)}))} />
-            <input type="text" placeholder="Enter Your Title"  value={Title}  />
-            <input type="email" placeholder="Enter Your Email"  value={Email} />
-            <input type="number" placeholder="Enter Your Number"  value={Number} />
-            <input type="text" placeholder="Enter Your Location" value={Location}  />
+            <input type="text" placeholder="Enter Your Title"  value={Title} onChange={(e)=> dispatch(updateUserInfo({ property: 'Title', value: (e.target.value)}))} />
+            <input type="email" placeholder="Enter Your Email"  value={Email} onChange={(e)=> dispatch(updateUserInfo({ property: 'Email', value: (e.target.value)}))} />
+            <input type="number" placeholder="Enter Your Number"  value={Number} onChange={(e)=> dispatch(updateUserInfo({ property: 'Number', value: (e.target.value)}))} />
+            <input type="text" placeholder="Enter Your Location" value={Location} onChange={(e)=> dispatch(updateUserInfo({ property: 'Location', value: (e.target.value)}))} />
           </form>
         </div>
       </div>

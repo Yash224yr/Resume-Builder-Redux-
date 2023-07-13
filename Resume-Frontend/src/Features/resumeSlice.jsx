@@ -19,6 +19,7 @@ export const resumeSlice = createSlice({
             username: "",
         },
 
+
         UserInfo: {
             Name: "",
             Title: "",
@@ -29,8 +30,9 @@ export const resumeSlice = createSlice({
 
         customisation  : {
             InfoNamefont : ""
-        }
+        },
 
+      
 
     },
 
@@ -66,11 +68,12 @@ export const resumeSlice = createSlice({
         },
 
        
+       
     }
 })
 
 export const {
-    updateEmail, updatePassword, updateName, updateloginEmail, updateloginPassword, updateuser, updateUserInfo 
+    updateEmail, updatePassword, updateName, updateloginEmail, updateloginPassword, updateuser, updateUserInfo  
 } = resumeSlice.actions
 
 export default resumeSlice.reducer
