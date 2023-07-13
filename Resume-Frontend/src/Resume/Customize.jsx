@@ -25,7 +25,6 @@ function Customize() {
         <div className={`form ${show === "resume" ? 'show' : ''}`}>
           <div className='align' >
             <h4> top : <input type='range' min="10" max="45" value={pad} onChange={(e)=> dispatch(resumecustom({ property: 'pad', value: (e.target.value)}))}></input> </h4>
-      
           </div>
         </div>
       </div>

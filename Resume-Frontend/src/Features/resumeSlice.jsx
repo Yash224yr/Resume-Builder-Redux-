@@ -27,9 +27,10 @@ export const resumeSlice = createSlice({
             Number: "",
             Location: "",
         },
-
+        
         resumecustom : {
-            pad : ""
+            pad : "",
+            back : [],
         },
 
       
