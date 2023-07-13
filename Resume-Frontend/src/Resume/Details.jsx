@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 
 function Details() {
-  const [showForm, setShowForm] = useState(false);
+  const [show, setShow] = useState("");
 
-  const toggleForm = () => {
-    setShowForm(!showForm);
-  };
+ function handlerShow(section){
+    setShow(show => (show === section ? "" : section ))
+ }
 
   return (
-    <div className={`details ${showForm ? 'open' : ''}`}>
-      <h2 onClick={toggleForm} className={showForm ? 'active' : ''}>
-        Hello
-      </h2>
-      <div className={`form-container ${showForm ? 'show' : ''}`}>
-        <form>
-          <div className="info">
+    <div className="details">
+      <div className="info">
+        <h1 onClick={()=>handlerShow("info")} className={show=== "info" ? "active" : ""}  >Info {show=== "info" ? (<KeyboardArrowUpIcon />) : (<KeyboardArrowDownIcon />)}</h1>
+        <div className={`form ${show === "info" ? 'show' : ''}`}>
+          <form>
+            <input type="text" placeholder='Enter Your Name' />
             <input type="text" placeholder="Enter Your Title" />
             <input type="email" placeholder="Enter Your Email" />
             <input type="number" placeholder="Enter Your Number" />
             <input type="text" placeholder="Enter Your Location" />
-          </div>
+          </form>
+        </div>
+      </div>
+      <div className='info' >
+        <h1 onClick={()=>handlerShow("about")} >About {show === "about"  ? (<KeyboardArrowUpIcon />) : (<KeyboardArrowDownIcon />)}</h1>
+        <form>
+            <textarea></textarea>
         </form>
       </div>
     </div>
