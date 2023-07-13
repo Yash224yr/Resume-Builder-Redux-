@@ -28,8 +28,8 @@ export const resumeSlice = createSlice({
             Location: "",
         },
 
-        customisation  : {
-            InfoNamefont : ""
+        resumecustom : {
+            pad : ""
         },
 
       
@@ -67,13 +67,18 @@ export const resumeSlice = createSlice({
             state.UserInfo[property] = value;
         },
 
+        resumecustom : (state , action) =>{
+            const {property , value} = action.payload
+            state.resumecustom[property] = value;
+        }
+
        
        
     }
 })
 
 export const {
-    updateEmail, updatePassword, updateName, updateloginEmail, updateloginPassword, updateuser, updateUserInfo  
+    updateEmail, updatePassword, updateName, updateloginEmail, updateloginPassword, updateuser, updateUserInfo  , resumecustom
 } = resumeSlice.actions
 
 export default resumeSlice.reducer
