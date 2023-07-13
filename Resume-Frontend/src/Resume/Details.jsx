@@ -41,7 +41,7 @@ function Details() {
         </div>
       </div>
       <div className='info' >
-        <h1 onClick={() => handlerShow("about")} >About {show === "about" ? (<KeyboardArrowUpIcon />) : (<KeyboardArrowDownIcon />)}</h1>
+        <h1 onClick={() => handlerShow("about")} className={show === "about" ? "active" : ""} >About {show === "about" ? (<KeyboardArrowUpIcon />) : (<KeyboardArrowDownIcon />)}</h1>
         <div className={`form ${show === "about" ? 'show' : ''}`}>
           <form>
             <textarea placeholder='Enter About Yourself' ></textarea>
