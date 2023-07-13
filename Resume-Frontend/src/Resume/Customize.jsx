@@ -8,7 +8,7 @@ function Customize() {
 
   const [show, setShow] = useState("");
   const { pad, back } = useSelector(state => state.resume.resumecustom)
-  const { textsize  } = useSelector(state => state.resume.infoCustomize)
+  const { textsize, titlesize } = useSelector(state => state.resume.infoCustomize)
 
   const dispatch = useDispatch()
 
@@ -100,6 +100,7 @@ function Customize() {
       id: "black"
     },
   ]
+
   const textfont = [
     {
       id: 'Open Sans',
@@ -134,8 +135,12 @@ function Customize() {
   function handlerTextcolor(color) {
     dispatch(updateInfoCustom({ property: "textcolor", value: (color) }))
   }
-  function handlerfontChange(font){
+  function handlerfontChange(font) {
     dispatch(updateInfoCustom({ property: "textfont", value: (font) }))
+
+  }
+  function handlertitlealign(align) {
+    dispatch(updateInfoCustom({ property: "titlealign", value: (align) }))
 
   }
 
@@ -168,11 +173,11 @@ function Customize() {
         </div>
       </div>
       <div className='info' >
-        <h1 onClick={() => handlerShow("info")} className={show === "info" ? "active" : ""}  > Info  {show === "resume" ? <AutoFixHighIcon /> : <AutoFixNormalIcon />}</h1>
+        <h1 onClick={() => handlerShow("info")} className={show === "info" ? "active" : ""}  > Info  {show === "info" ? <AutoFixHighIcon /> : <AutoFixNormalIcon />}</h1>
         <div className={`form ${show === "info" ? 'show' : ''}`}>
           <div className='header' >
-            <h4>Name :
-              <ul>
+            <h4><span>Name : </span>
+              <ul className='text-align' >
                 {
                   text.map((list, index) => {
                     return (
@@ -190,28 +195,43 @@ function Customize() {
                   })
                 }
               </ul>
-              <h4>Size : <input type='range' min="20" max="35" value={textsize} onChange={(e) => {
+              <h5>Size : <input type='range' min="20" max="50" value={textsize} onChange={(e) => {
                 dispatch(updateInfoCustom({ property: "textsize", value: (e.target.value) }))
-              }} ></input></h4>
+              }} ></input></h5>
 
               <ul>
-                <h4>Font :
-                    <ul>
-                      {
-                        textfont.map((list , index)=>{
-                          return (
-                            <li key={index} onClick={()=>handlerfontChange(list.id) } style={{fontFamily : list.id}}>{list.id}</li>
-                          )
-                        })
-                      }
-                    </ul>
-                   </h4>
+                <h3>Font :
+                  <ul>
+                    {
+                      textfont.map((list, index) => {
+                        return (
+                          <li key={index} onClick={() => handlerfontChange(list.id)} style={{ fontFamily: list.id }}>{list.id}</li>
+                        )
+                      })
+                    }
+                  </ul>
+                </h3>
               </ul>
 
+            </h4>
+            <h4> <span>Title :</span>
+              <ul className='text-align' >
+                {
+                  text.map((list, index) => {
+                    return (
+                      <li key={index} onClick={() => { handlertitlealign(list.id) }}>{list.id}</li>
+                    )
+                  })
+                }
+              </ul>
+              <h5>Size : <input type='range' min="10" max="30" value={titlesize} onChange={(e) => {
+                dispatch(updateInfoCustom({ property: "titlesize", value: (e.target.value) }))
+              }} ></input></h5>
             </h4>
           </div>
         </div>
       </div>
+
     </div>
   )
 }
