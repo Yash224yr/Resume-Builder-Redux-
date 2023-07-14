@@ -27,7 +27,7 @@ function Details() {
   function Accountsubmit(e) {
     e.preventDefault();
     dispatch(updateInfoCustom({ property: 'accounts', value: [...accounts, accountlist] }));
-    setAccountList("");  
+    setAccountList("");
   }
   console.log(accounts)
 
@@ -50,10 +50,13 @@ function Details() {
         <div className={`form ${show === "account" ? 'show' : ''}`}>
           <form onSubmit={Accountsubmit} >
             <input type="text" placeholder='Enter Acount Name' value={accountlist} onChange={(e) => { setAccountList(e.target.value) }} />
-            <button type='submit' >Submit</button>
+              <ul>
+
+              </ul>
+            
+            <button type='submit' className='detail-save' >Save</button>
           </form>
         </div>
-
       </div>
       <div className='info' >
         <h1 onClick={() => handlerShow("about")} className={show === "about" ? "active" : ""} >About {show === "about" ? (<KeyboardArrowUpIcon />) : (<KeyboardArrowDownIcon />)}</h1>

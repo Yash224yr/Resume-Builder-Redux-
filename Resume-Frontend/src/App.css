@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,26 +16,26 @@
 /* Header */
 
 
-header{
+header {
   height: 10vh;
-    display: flex;
-    justify-content: space-between;   
-    padding: 0 3rem ;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3rem;
+  align-items: center;
 }
 
-header ul{
+header ul {
   list-style: none;
   display: flex;
   align-items: center;
 }
 
-header ul li{
-  margin: 0 8px ;
+header ul li {
+  margin: 0 8px;
   position: relative;
 }
 
-header ul li a{
+header ul li a {
   text-decoration: none;
   color: black;
   font-size: 1.2rem;
@@ -43,7 +43,7 @@ header ul li a{
   font-weight: 600;
 }
 
-header ul li a:hover{
+header ul li a:hover {
   color: rgb(29 136 237);
 }
 
@@ -81,13 +81,13 @@ header .log-in button {
   transition: background-color 0.3s ease;
 }
 
-header button a{
+header button a {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-header button a svg{
+header button a svg {
   margin-left: 5px;
 }
 
@@ -118,11 +118,11 @@ header .log-out button {
   align-items: center;
 }
 
-header .log-out svg{
+header .log-out svg {
   margin-left: 5px;
 }
 
-header .log-out h1{
+header .log-out h1 {
   font-size: 1rem;
   display: flex;
   justify-content: center;
@@ -287,15 +287,17 @@ header .logo img {
 
 
 
-.register , .login {
+.register,
+.login {
   display: flex;
   justify-content: center;
   width: 100%;
   height: 100%;
-  margin-top:  5rem;
+  margin-top: 5rem;
 }
 
-.register .register-box , .login .login-box {
+.register .register-box,
+.login .login-box {
   padding: 20px;
   border-radius: 5px;
   background-color: #fff;
@@ -307,27 +309,31 @@ header .logo img {
   justify-content: center;
 }
 
-.register .register-box .get-login p , .login .login-box .get-register p{
+.register .register-box .get-login p,
+.login .login-box .get-register p {
   font-size: 1.5rem;
   font-weight: 500;
 }
 
-.error-fill{
+.error-fill {
   color: red;
   margin: 5px 0;
 }
 
-.register .register-box form , .login .login-box form {
+.register .register-box form,
+.login .login-box form {
   display: flex;
   flex-direction: column;
 }
 
-.register .register-box input , .login .login-box input {
+.register .register-box input,
+.login .login-box input {
   padding: 10px;
   margin-bottom: 10px;
 }
 
-.register .register-box button , .login .login-box button {
+.register .register-box button,
+.login .login-box button {
   padding: 10px;
   background-color: #4caf50;
   color: white;
@@ -337,32 +343,38 @@ header .logo img {
   width: 100%;
 }
 
-.register .register-box button:hover , .login .login-box button:hover {
+.register .register-box button:hover,
+.login .login-box button:hover {
   background-color: #45a049;
 }
 
-.register .register-box .get-login , .login .login-box .get-register{
+.register .register-box .get-login,
+.login .login-box .get-register {
   margin: 0.5rem 0;
 }
 
-.register .get-login a , .login .get-register a{
+.register .get-login a,
+.login .get-register a {
   color: #007bff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.register .get-login a:hover  , .login .get-register a:hover{
+.register .get-login a:hover,
+.login .get-register a:hover {
   color: #0056b3;
 }
 
- 
-.register .register-box .google p , .login .login-box .google p{
+
+.register .register-box .google p,
+.login .login-box .google p {
   text-align: center;
   margin: 0.5rem 0;
 }
 
 
-.register .google button , .login .google button{
+.register .google button,
+.login .google button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -374,18 +386,20 @@ header .logo img {
   transition: background-color 0.3s ease;
 }
 
-.register .google button:hover , .login .google button:hover {
+.register .google button:hover,
+.login .google button:hover {
   background-color: #c53728;
 }
 
-.register .google span , .login .google span  {
+.register .google span,
+.login .google span {
   margin-right: 5px;
 }
 
 
 /* Features */
 
-.features{
+.features {
   padding: 1rem 0 2rem 8rem;
   display: flex;
   flex-direction: column;
@@ -394,24 +408,26 @@ header .logo img {
   background-color: #F0F0F0;
 }
 
-.features .title h1{
+.features .title h1 {
   font-size: 2.5rem;
   text-align: center;
 }
-.features .title p{
- text-align: center;
- font-size: 1.5rem;
- margin-top: 0.5rem;
- color: #5a5c5e;
+
+.features .title p {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: #5a5c5e;
 }
-.features .feature{
+
+.features .feature {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-.features .feature .feature-box{
+.features .feature .feature-box {
   width: 30%;
   display: flex;
   justify-content: space-between;
@@ -419,20 +435,23 @@ header .logo img {
   margin: 3rem 1rem;
 }
 
-.feature-box .image{
-    width: 20%;
+.feature-box .image {
+  width: 20%;
 }
-.feature-box .box-text{
+
+.feature-box .box-text {
   width: 75%;
 }
-.feature-box .box-text p{
+
+.feature-box .box-text p {
   width: 75%;
   margin-top: 5px;
 }
 
-.feature-box .image img{
+.feature-box .image img {
   width: 100%;
 }
+
 .popup {
   position: fixed;
   top: 50%;
@@ -470,17 +489,22 @@ header .logo img {
   padding: 10px;
   background-color: #9376e0;
 }
+
 .resume .section-1::-webkit-scrollbar {
-  width: 0.5em; /* Adjust the width as needed */
+  width: 0.5em;
+  /* Adjust the width as needed */
 }
 
 .resume .section-1::-webkit-scrollbar-track {
-  background-color: transparent; /* Set the background color of the track */
+  background-color: transparent;
+  /* Set the background color of the track */
 }
 
 .resume .section-1::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Set the color of the thumb */
+  background-color: transparent;
+  /* Set the color of the thumb */
 }
+
 
 .resume .section-1 h2 {
   margin-top: 0;
@@ -495,6 +519,52 @@ header .logo img {
   margin-bottom: 20px;
 }
 
+.switch {
+  display: flex;
+  justify-content: center;
+}
+
+.switch button {
+  padding: 10px 20px;
+  width: 25%;
+  color: white;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.switch button:first-child {
+  background-color: darkgreen;
+}
+
+.switch button:last-child {
+  background-color: darkblue;
+  margin-right: 0;
+}
+
+.switch button:hover {
+  background-color: #45a049;
+}
+
+.switch button:first-child:hover {
+  background-color: #3d8f3d;
+}
+
+.switch button:last-child:hover {
+  background-color: #1e5f98;
+}
+
+.switch button:focus {
+  outline: none;
+}
+
+.switch button:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+
 .resume .section-2 {
   position: fixed;
   top: 10vh;
@@ -503,7 +573,7 @@ header .logo img {
   overflow-y: auto;
   width: 65%;
   padding: 20px 4rem;
-  background-color: rgba(238 , 240 , 244 , 1);
+  background-color: rgba(238, 240, 244, 1);
 
 }
 
@@ -548,7 +618,7 @@ header .logo img {
   transition: 0.5s ease;
 }
 
-.active{
+.active {
   background-color: #5a8dee;
   color: white !important;
 }
@@ -569,17 +639,18 @@ header .logo img {
 .form.show {
   max-height: 500px;
   transition: max-height 0.3s ease-in;
- 
+
 }
 
-.form.show form , .form form{
+.form.show form,
+.form form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-textarea{
+textarea {
   width: 95%;
   height: 100px;
   padding: 10px;
@@ -599,36 +670,45 @@ textarea{
   text-decoration: underline;
 }
 
+.detail-save {
+  width: 18%;
+  padding: 4px 0;
+  background-color: #9376e0;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
 
 
 
 /* Template */
 
-.template-1{
+.template-1 {
   background-color: rgb(255, 255, 255);
   margin-top: 1rem;
-  border:  1px solid black;
+  border: 1px solid black;
 }
 
-.template-1 .name h2{
+.template-1 .name h2 {
   margin-top: 5px;
 }
 
-.template-1 .contact{
+.template-1 .contact {
   display: flex;
   justify-content: space-evenly;
   margin-top: 10px;
 }
 
-.template-1 .contact p{
+.template-1 .contact p {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.template-1 .contact p svg{
+.template-1 .contact p svg {
   margin-right: 5px;
- font-size: 1rem;
+  font-size: 1rem;
 }
 
 
@@ -639,22 +719,22 @@ textarea{
 
 /* Customize */
 
-.customize h4{
-  margin:  10px 0;
-  padding: 0 10px   ;
+.customize h4 {
+  margin: 10px 0;
+  padding: 0 10px;
 }
 
-.customize h4 span{
+.customize h4 span {
   text-align: center;
-    display: block;
-    color: blue;
+  display: block;
+  color: blue;
 }
 
-.align .title{
+.align .title {
   margin-top: 5px;
 }
 
-.align ul{
+.align ul {
   display: flex;
   list-style: none;
   justify-content: start;
@@ -662,20 +742,20 @@ textarea{
   flex-wrap: wrap;
 }
 
-.align ul li{
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin: 10px;
+.align ul li {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 10px;
 }
 
 input[type='color'] {
   cursor: pointer;
 }
 
-.customize h5{
-  margin:  10px 0;
+.customize h5 {
+  margin: 10px 0;
 }
 
 .header ul {
@@ -684,29 +764,31 @@ input[type='color'] {
   margin-top: 5px;
 }
 
-.header .text-align li{
-  margin:  0 10px;
+.header .text-align li {
+  margin: 0 10px;
   height: 30px;
   width: 100px;
-  border:  1px solid black;
+  border: 1px solid black;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.header .text-align li:first-of-type{
+.header .text-align li:first-of-type {
   justify-content: start;
   padding: 0 5px;
 }
-.header .text-align li:nth-of-type(2){
+
+.header .text-align li:nth-of-type(2) {
   justify-content: center;
 }
-.header .text-align li:nth-of-type(3){
+
+.header .text-align li:nth-of-type(3) {
   justify-content: end;
   padding: 0 5px;
 }
 
-.header ul:nth-of-type(2) li{
+.header ul:nth-of-type(2) li {
   margin: 5px 10px;
   height: 40px;
   width: 40px;
@@ -714,14 +796,14 @@ input[type='color'] {
   cursor: pointer;
 }
 
-.header ul:nth-of-type(3) li{
+.header ul:nth-of-type(3) li {
   width: auto;
   height: auto;
   display: flex;
   padding: 5px;
   justify-content: center;
-  margin:  0 10px;  
-  border:  1px solid black;
+  margin: 0 10px;
+  border: 1px solid black;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -786,4 +868,3 @@ input[type='color'] {
 .header-title input[type="range"] {
   width: 100%;
 }
-
