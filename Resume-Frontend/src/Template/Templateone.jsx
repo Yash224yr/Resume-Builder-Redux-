@@ -7,9 +7,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 function Templateone() {
 
-    const { Name, Title, Email, Number, Location } = useSelector(state => state.resume.UserInfo)
+    const { Name, Title, Email, Number, Location, abouttext } = useSelector(state => state.resume.UserInfo)
     const { pad, back } = useSelector(state => state.resume.resumecustom)
-    const { textalign, textcolor, textsize, textfont, titlealign, titlesize, titlecolor, contactsize , accounts } = useSelector(state => state.resume.infoCustomize)
+    const { textalign, textcolor, textsize, textfont, titlealign, titlesize, titlecolor, contactsize, accounts } = useSelector(state => state.resume.infoCustomize)
 
     return (
         <div className='template-1' style={{ padding: pad ? pad + "px" : "20px", backgroundColor: back ? back : "rgb(255, 255, 255)" }}>
@@ -27,29 +27,38 @@ function Templateone() {
                         color: titlecolor ? titlecolor : "black",
                     }} >{Title}</h2>
                 </div>
-                <div className='contact' style={{fontSize : contactsize ? contactsize + "px" : "20px" }} >
+                <div className='contact' style={{ fontSize: contactsize ? contactsize + "px" : "20px" }} >
                     <p>{Email && <><EmailIcon /> {Email}</>}</p>
                     <p>{Number && <><PhoneIcon></PhoneIcon> {Number}</>}</p>
                     <p>{Location && <><LocationOnIcon></LocationOnIcon> {Location}</>}</p>
                 </div>
-                <div  className='accounts' >
+                <div className='accounts' >
                     <ul>
                         {
-                            accounts.map((list , index)=>{
-                                const [name , url ] = list.split(":-")
+                            accounts.map((list, index) => {
+                                const [name, url] = list.split(":-")
                                 console.log(name)
                                 console.log(url)
                                 return (
-                                    <li key={index}><span>{name + " " + ":" }</span> {url} </li>
+                                    <li key={index}><span>{name + " " + ":"}</span> {url} </li>
                                 )
                             })
                         }
                     </ul>
                 </div>
             </div>
-            <div className='template-about' >
-                    <h1>About</h1>
-            </div>
+            {
+                abouttext && 
+                <div className='template-about' >
+                    <div class="one">
+                        <h1>About</h1>
+                    </div>
+                    <div className='about' >
+                        <p>{abouttext}</p>
+                    </div>
+                </div>
+            }
+
         </div>
     )
 }
