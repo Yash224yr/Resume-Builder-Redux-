@@ -3,12 +3,17 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { updateUserInfo, updateInfoCustom } from '../Features/resumeSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
 function Details() {
   const [show, setShow] = useState("");
   const [accountlist, setAccountList] = useState("")
+  const [accounturl, setAccountUrl] = useState("")
+  const [accountCheck, setAccountCheck] = useState(false)
+  const [accountIndex, setAccountIndex] = useState("")
 
   const dispatch = useDispatch()
   const { Name,
@@ -26,10 +31,38 @@ function Details() {
 
   function Accountsubmit(e) {
     e.preventDefault();
-    dispatch(updateInfoCustom({ property: 'accounts', value: [...accounts, accountlist] }));
-    setAccountList("");
+    if (accountCheck === false && accountlist.length > 0 && accounturl.length > 0) {
+      dispatch(updateInfoCustom({ property: 'accounts', value: [...accounts, `${accountlist}: ${accounturl}`] }));
+      setAccountList("");
+      setAccountUrl("")
+    }
+    else if (accountCheck === true) {
+      const updatedAccounts = [...accounts];
+      updatedAccounts[accountIndex] = `${accountlist}: ${accounturl}`;
+      dispatch(updateInfoCustom({ property: 'accounts', value: updatedAccounts }));
+      setAccountList("");
+      setAccountUrl("")
+      setAccountCheck(!accountCheck)
+    }
   }
-  console.log(accounts)
+
+
+  function handleredit(list, index) {
+    setAccountCheck(!accountCheck)
+    setAccountIndex(index)
+    const [name, url] = list.split(":")
+    setAccountList(name)
+    setAccountUrl(url)
+  }
+
+  function handlerdelete(index) {
+    const updatedAccounts = [...accounts].filter((list, ind) => {
+      return ind !== index;
+    });
+    dispatch(updateInfoCustom({ property: 'accounts', value: updatedAccounts }));
+  }
+  
+  
 
   return (
     <div className="details">
@@ -50,11 +83,17 @@ function Details() {
         <div className={`form ${show === "account" ? 'show' : ''}`}>
           <form onSubmit={Accountsubmit} >
             <input type="text" placeholder='Enter Acount Name' value={accountlist} onChange={(e) => { setAccountList(e.target.value) }} />
-              <ul>
-
-              </ul>
-            
+            <input type="text" placeholder='Enter URL ' value={accounturl} onChange={(e) => { setAccountUrl(e.target.value) }} />
             <button type='submit' className='detail-save' >Save</button>
+            <ul className='details-list' >
+              {
+                accounts.map((list, index) => {
+                  return (
+                    <li key={index}>{list} <span><EditIcon onClick={() => { handleredit(list, index) }} ></EditIcon> <DeleteIcon onClick={()=>{handlerdelete(index)}} ></DeleteIcon>  </span>  </li>
+                  )
+                })
+              }
+            </ul>
           </form>
         </div>
       </div>
