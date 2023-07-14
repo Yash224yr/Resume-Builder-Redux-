@@ -9,7 +9,7 @@ function Customize() {
   const [show, setShow] = useState("");
   const [swtich, setSwitch] = useState("")
   const { pad, back } = useSelector(state => state.resume.resumecustom)
-  const { textsize, titlesize , contactsize } = useSelector(state => state.resume.infoCustomize)
+  const { textsize, titlesize, contactsize } = useSelector(state => state.resume.infoCustomize)
 
   const dispatch = useDispatch()
 
@@ -153,9 +153,9 @@ function Customize() {
     setSwitch(show)
   }
 
- useEffect(()=>{
-  setSwitch("name")
- },[])
+  useEffect(() => {
+    setSwitch("name")
+  }, [])
 
   console.log(swtich)
 
@@ -189,12 +189,12 @@ function Customize() {
         <h1 onClick={() => handlerShow("info")} className={show === "info" ? "active" : ""}  > Info  {show === "info" ? <AutoFixHighIcon /> : <AutoFixNormalIcon />}</h1>
         <div className={`form ${show === "info" ? 'show' : ''}`}>
           <div className='switch-info'  >
-            <button onClick={() => { handlerSwitch("name") }}   className={swtich === "name" ? "button-select" : ""} >Name</button>
+            <button onClick={() => { handlerSwitch("name") }} className={swtich === "name" ? "button-select" : ""} >Name</button>
             <button onClick={() => { handlerSwitch("title") }} className={swtich === "title" ? "button-select" : ""} >Title</button>
-            <button onClick={()=>{handlerSwitch("contact")}} className={swtich === "contact" ? "button-select" : ""} >Contact</button>
+            <button onClick={() => { handlerSwitch("contact") }} className={swtich === "contact" ? "button-select" : ""} >Contact</button>
           </div>
           <div className='header' >
-            <div className='header-name' style={{display : swtich === "name" ? "block" : "none" }} >
+            <div className='header-name' style={{ display: swtich === "name" ? "block" : "none" }} >
 
               <h4>
                 <ul className='text-align' >
@@ -235,40 +235,42 @@ function Customize() {
 
               </h4>
             </div>
-            <div className='header-title' style={{display : swtich === "title" ? "block" : "none"}} >
-            <h4> 
-              <ul className='text-align' >
-                {
-                  text.map((list, index) => {
-                    return (
-                      <li key={index} onClick={() => { handlertitlealign(list.id) }}>{list.id}</li>
-                    )
-                  })
-                }
-              </ul>
-              <h5>Size : <input type='range' min="10" max="30" value={titlesize} onChange={(e) => {
-                dispatch(updateInfoCustom({ property: "titlesize", value: (e.target.value) }))
-              }} ></input></h5>
-              <ul>
-                {
-                  textcolor.map((list, index) => {
-                    return (
-                      <li key={index} style={{ backgroundColor: list.id }} onClick={() => { handlerTitlecolor(list.id) }} ></li>
-                    )
-                  })
-                }
-              </ul>
-            </h4>
-            </div>
-              <div className='header-contact' >
-              <h5>Size : <input type='range' min="10" max="30" value={contactsize} onChange={(e) => {
-                  dispatch(updateInfoCustom({ property: "contactsize", value: (e.target.value) }))
+            <div className='header-title' style={{ display: swtich === "title" ? "block" : "none" }} >
+              <h4>
+                <ul className='text-align' >
+                  {
+                    text.map((list, index) => {
+                      return (
+                        <li key={index} onClick={() => { handlertitlealign(list.id) }}>{list.id}</li>
+                      )
+                    })
+                  }
+                </ul>
+                <h5>Size : <input type='range' min="10" max="30" value={titlesize} onChange={(e) => {
+                  dispatch(updateInfoCustom({ property: "titlesize", value: (e.target.value) }))
                 }} ></input></h5>
-              </div>
-            
+                <ul>
+                  {
+                    textcolor.map((list, index) => {
+                      return (
+                        <li key={index} style={{ backgroundColor: list.id }} onClick={() => { handlerTitlecolor(list.id) }} ></li>
+                      )
+                    })
+                  }
+                </ul>
+              </h4>
+            </div>
+            <div className='header-contact' style={{ display: swtich === "contact" ? "block" : "none" }} >
+              <h5>Size : <input type='range' min="10" max="30" value={contactsize} onChange={(e) => {
+                dispatch(updateInfoCustom({ property: "contactsize", value: (e.target.value) }))
+              }} ></input></h5>
+            </div>
+
           </div>
         </div>
       </div>
+    
+      
 
     </div>
   )
