@@ -739,6 +739,17 @@ input[type='color'] {
   background-color: #eee;
   border: none;
   cursor: pointer;
+  color: black;
+  font-size: 1rem;
+}
+
+.button-select {
+  color: red !important;
+}
+
+.switch-info button:hover {
+  background-color: #ccc;
+  color: #fff;
 }
 
 .header {
@@ -773,63 +784,6 @@ input[type='color'] {
 
 .header-name input[type="range"],
 .header-title input[type="range"] {
-  width: 100%;
-}
-
-/* Add more CSS rules as needed for other elements */
-/* styles.css */
-
-.switch-info {
-  display: flex;
-  justify-content: space-around;
-}
-
-.switch-info button {
-  padding: 8px 16px;
-  background-color: #eee;
-  border: none;
-  cursor: pointer;
-  color: black;
-  font-size: 1rem;
-}
-
-.button-select {
-  color: red !important;
-}
-
-.switch-info button:hover {
-  background-color: #ccc;
-  color: #fff;
-}
-
-
-.header-name,
-.header-title {
-  display: none;
-}
-
-.header-name ul,
-.header-title ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.header-name ul li,
-.header-title ul li {
-  cursor: pointer;
-}
-
-.header-name h4,
-.header-title h4 {
-  margin-bottom: 16px;
-}
-
-.header-name h5,
-.header-title h5 {
-  margin-top: 16px;
-}
-input[type="range"],
-input[type="range"] {
   width: 100%;
 }
 

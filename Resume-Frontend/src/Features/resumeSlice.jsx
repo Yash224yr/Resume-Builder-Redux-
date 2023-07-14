@@ -42,7 +42,9 @@ export const resumeSlice = createSlice({
             titlesize : "",
             titlecolor:"",
             contactsize : "",
+            accounts : [],
         }
+
 
       
 
