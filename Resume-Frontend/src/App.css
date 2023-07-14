@@ -216,7 +216,21 @@ header .logo img {
   width: 100%;
 }
 
-
+.homepage button span {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  padding: 18px 0px;
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 .homepage button:hover span {
@@ -248,7 +262,6 @@ header .logo img {
   text-decoration: none;
   font-weight: bold;
 }
-
 
 .homepage .images {
   background-image: url("./images/home.jpg");
