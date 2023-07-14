@@ -39,7 +39,9 @@ export const resumeSlice = createSlice({
             textsize : "",
             textfont : "",
             titlealign : "",
-            titlesize : ""
+            titlesize : "",
+            titlecolor:"",
+            contactsize : "",
         }
 
       

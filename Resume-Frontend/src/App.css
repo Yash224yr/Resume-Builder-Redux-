@@ -216,21 +216,7 @@ header .logo img {
   width: 100%;
 }
 
-.homepage button span {
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-  padding: 18px 0px;
-  color: #fff;
-  font-size: 1.125em;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  z-index: 20;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 
 .homepage button:hover span {
@@ -601,6 +587,8 @@ textarea{
 }
 
 
+
+
 /* Template */
 
 .template-1{
@@ -608,6 +596,32 @@ textarea{
   margin-top: 1rem;
   border:  1px solid black;
 }
+
+.template-1 .name h2{
+  margin-top: 5px;
+}
+
+.template-1 .contact{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.template-1 .contact p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.template-1 .contact p svg{
+  margin-right: 5px;
+ font-size: 1rem;
+}
+
+
+
+
+
 
 
 /* Customize */
@@ -698,5 +712,111 @@ input[type='color'] {
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+/* styles.css */
+
+.switch-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.switch-info button {
+  padding: 8px 16px;
+  background-color: #eee;
+  border: none;
+  cursor: pointer;
+}
+
+.header {
+  margin-top: 16px;
+}
+
+.header-name,
+.header-title {
+  display: none;
+}
+
+.header-name ul,
+.header-title ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.header-name ul li,
+.header-title ul li {
+  cursor: pointer;
+}
+
+.header-name h4,
+.header-title h4 {
+  margin-bottom: 16px;
+}
+
+.header-name h5,
+.header-title h5 {
+  margin-top: 16px;
+}
+
+.header-name input[type="range"],
+.header-title input[type="range"] {
+  width: 100%;
+}
+
+/* Add more CSS rules as needed for other elements */
+/* styles.css */
+
+.switch-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.switch-info button {
+  padding: 8px 16px;
+  background-color: #eee;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-size: 1rem;
+}
+
+.button-select {
+  color: red !important;
+}
+
+.switch-info button:hover {
+  background-color: #ccc;
+  color: #fff;
+}
+
+
+.header-name,
+.header-title {
+  display: none;
+}
+
+.header-name ul,
+.header-title ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.header-name ul li,
+.header-title ul li {
+  cursor: pointer;
+}
+
+.header-name h4,
+.header-title h4 {
+  margin-bottom: 16px;
+}
+
+.header-name h5,
+.header-title h5 {
+  margin-top: 16px;
+}
+input[type="range"],
+input[type="range"] {
+  width: 100%;
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AutoFixNormalIcon from '@mui/icons-material/AutoFixNormal';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import { resumecustom, updateInfoCustom } from '../Features/resumeSlice';
@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 function Customize() {
 
   const [show, setShow] = useState("");
+  const [swtich, setSwitch] = useState("")
   const { pad, back } = useSelector(state => state.resume.resumecustom)
-  const { textsize, titlesize } = useSelector(state => state.resume.infoCustomize)
+  const { textsize, titlesize , contactsize } = useSelector(state => state.resume.infoCustomize)
 
   const dispatch = useDispatch()
 
@@ -143,8 +144,20 @@ function Customize() {
     dispatch(updateInfoCustom({ property: "titlealign", value: (align) }))
 
   }
+  function handlerTitlecolor(color) {
+    dispatch(updateInfoCustom({ property: "titlecolor", value: (color) }))
+  }
 
+  function handlerSwitch(show) {
+    console.log(show)
+    setSwitch(show)
+  }
 
+ useEffect(()=>{
+  setSwitch("name")
+ },[])
+
+  console.log(swtich)
 
 
   return (
@@ -175,46 +188,55 @@ function Customize() {
       <div className='info' >
         <h1 onClick={() => handlerShow("info")} className={show === "info" ? "active" : ""}  > Info  {show === "info" ? <AutoFixHighIcon /> : <AutoFixNormalIcon />}</h1>
         <div className={`form ${show === "info" ? 'show' : ''}`}>
+          <div className='switch-info'  >
+            <button onClick={() => { handlerSwitch("name") }}   className={swtich === "name" ? "button-select" : ""} >Name</button>
+            <button onClick={() => { handlerSwitch("title") }} className={swtich === "title" ? "button-select" : ""} >Title</button>
+            <button onClick={()=>{handlerSwitch("contact")}} className={swtich === "contact" ? "button-select" : ""} >Contact</button>
+          </div>
           <div className='header' >
-            <h4><span>Name : </span>
-              <ul className='text-align' >
-                {
-                  text.map((list, index) => {
-                    return (
-                      <li key={index} onClick={() => { handlertext(list.id) }}>{list.id}</li>
-                    )
-                  })
-                }
-              </ul>
-              <ul>
-                {
-                  textcolor.map((list, index) => {
-                    return (
-                      <li key={index} style={{ backgroundColor: list.id }} onClick={() => { handlerTextcolor(list.id) }} ></li>
-                    )
-                  })
-                }
-              </ul>
-              <h5>Size : <input type='range' min="20" max="50" value={textsize} onChange={(e) => {
-                dispatch(updateInfoCustom({ property: "textsize", value: (e.target.value) }))
-              }} ></input></h5>
+            <div className='header-name' style={{display : swtich === "name" ? "block" : "none" }} >
 
-              <ul>
-                <h3>Font :
-                  <ul>
-                    {
-                      textfont.map((list, index) => {
-                        return (
-                          <li key={index} onClick={() => handlerfontChange(list.id)} style={{ fontFamily: list.id }}>{list.id}</li>
-                        )
-                      })
-                    }
-                  </ul>
-                </h3>
-              </ul>
+              <h4>
+                <ul className='text-align' >
+                  {
+                    text.map((list, index) => {
+                      return (
+                        <li key={index} onClick={() => { handlertext(list.id) }}>{list.id}</li>
+                      )
+                    })
+                  }
+                </ul>
+                <ul>
+                  {
+                    textcolor.map((list, index) => {
+                      return (
+                        <li key={index} style={{ backgroundColor: list.id }} onClick={() => { handlerTextcolor(list.id) }} ></li>
+                      )
+                    })
+                  }
+                </ul>
+                <h5>Size : <input type='range' min="20" max="50" value={textsize} onChange={(e) => {
+                  dispatch(updateInfoCustom({ property: "textsize", value: (e.target.value) }))
+                }} ></input></h5>
 
-            </h4>
-            <h4> <span>Title :</span>
+                <ul>
+                  <h3>Font :
+                    <ul>
+                      {
+                        textfont.map((list, index) => {
+                          return (
+                            <li key={index} onClick={() => handlerfontChange(list.id)} style={{ fontFamily: list.id }}>{list.id}</li>
+                          )
+                        })
+                      }
+                    </ul>
+                  </h3>
+                </ul>
+
+              </h4>
+            </div>
+            <div className='header-title' style={{display : swtich === "title" ? "block" : "none"}} >
+            <h4> 
               <ul className='text-align' >
                 {
                   text.map((list, index) => {
@@ -227,7 +249,23 @@ function Customize() {
               <h5>Size : <input type='range' min="10" max="30" value={titlesize} onChange={(e) => {
                 dispatch(updateInfoCustom({ property: "titlesize", value: (e.target.value) }))
               }} ></input></h5>
+              <ul>
+                {
+                  textcolor.map((list, index) => {
+                    return (
+                      <li key={index} style={{ backgroundColor: list.id }} onClick={() => { handlerTitlecolor(list.id) }} ></li>
+                    )
+                  })
+                }
+              </ul>
             </h4>
+            </div>
+              <div className='header-contact' >
+              <h5>Size : <input type='range' min="10" max="30" value={contactsize} onChange={(e) => {
+                  dispatch(updateInfoCustom({ property: "contactsize", value: (e.target.value) }))
+                }} ></input></h5>
+              </div>
+            
           </div>
         </div>
       </div>
