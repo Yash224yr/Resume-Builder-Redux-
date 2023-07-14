@@ -26,6 +26,7 @@ export const resumeSlice = createSlice({
             Email: "",
             Number: "",
             Location: "",
+            abouttext : "",
         },
         
         resumecustom : {

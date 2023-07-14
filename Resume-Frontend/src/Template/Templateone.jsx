@@ -10,7 +10,6 @@ function Templateone() {
     const { Name, Title, Email, Number, Location } = useSelector(state => state.resume.UserInfo)
     const { pad, back } = useSelector(state => state.resume.resumecustom)
     const { textalign, textcolor, textsize, textfont, titlealign, titlesize, titlecolor, contactsize , accounts } = useSelector(state => state.resume.infoCustomize)
-    console.log(accounts)
 
     return (
         <div className='template-1' style={{ padding: pad ? pad + "px" : "20px", backgroundColor: back ? back : "rgb(255, 255, 255)" }}>
@@ -37,15 +36,19 @@ function Templateone() {
                     <ul>
                         {
                             accounts.map((list , index)=>{
-                                const [name , url ] = list.split(";")
-                                console.log(name, url)
+                                const [name , url ] = list.split(":-")
+                                console.log(name)
+                                console.log(url)
                                 return (
-                                    <li key={index}><span>name</span> url </li>
+                                    <li key={index}><span>{name + " " + ":" }</span> {url} </li>
                                 )
                             })
                         }
                     </ul>
                 </div>
+            </div>
+            <div className='template-about' >
+                    <h1>About</h1>
             </div>
         </div>
     )

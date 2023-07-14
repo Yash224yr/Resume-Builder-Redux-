@@ -20,11 +20,11 @@ function Details() {
     Title,
     Email,
     Number,
-    Location } = useSelector(state => state.resume.UserInfo)
+    Location , abouttext } = useSelector(state => state.resume.UserInfo)
 
   const { accounts } = useSelector(state => state.resume.infoCustomize)
 
-
+    console.log(abouttext)
   function handlerShow(section) {
     setShow(show => (show === section ? "" : section))
   }
@@ -32,13 +32,13 @@ function Details() {
   function Accountsubmit(e) {
     e.preventDefault();
     if (accountCheck === false && accountlist.length > 0 && accounturl.length > 0) {
-      dispatch(updateInfoCustom({ property: 'accounts', value: [...accounts, `${accountlist}: ${accounturl}`] }));
+      dispatch(updateInfoCustom({ property: 'accounts', value: [...accounts, `${accountlist}:- ${accounturl}`] }));
       setAccountList("");
       setAccountUrl("")
     }
     else if (accountCheck === true) {
       const updatedAccounts = [...accounts];
-      updatedAccounts[accountIndex] = `${accountlist}: ${accounturl}`;
+      updatedAccounts[accountIndex] = `${accountlist} :- ${accounturl}`;
       dispatch(updateInfoCustom({ property: 'accounts', value: updatedAccounts }));
       setAccountList("");
       setAccountUrl("")
@@ -50,7 +50,7 @@ function Details() {
   function handleredit(list, index) {
     setAccountCheck(!accountCheck)
     setAccountIndex(index)
-    const [name, url] = list.split(":")
+    const [name, url] = list.split(":-")
     setAccountList(name)
     setAccountUrl(url)
   }
@@ -101,7 +101,7 @@ function Details() {
         <h1 onClick={() => handlerShow("about")} className={show === "about" ? "active" : ""} >About {show === "about" ? (<KeyboardArrowUpIcon />) : (<KeyboardArrowDownIcon />)}</h1>
         <div className={`form ${show === "about" ? 'show' : ''}`}>
           <form>
-            <textarea placeholder='Enter About Yourself' ></textarea>
+            <textarea type="text" placeholder='Enter About Yourself' value={abouttext} onChange={(e) => dispatch(updateUserInfo({ property: 'abouttext', value: (e.target.value) }))}></textarea>
           </form>
         </div>
 

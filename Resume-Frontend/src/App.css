@@ -746,6 +746,21 @@ textarea {
   font-size: 1rem;
 }
 
+.template-1 .accounts ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.template-1 .accounts ul li{
+  margin: 0 10px;
+}
+.template-1 .accounts ul li span{
+  font-weight: 900;
+}
+
 
 
 
@@ -899,7 +914,7 @@ input[type='color'] {
   margin-top: 16px;
 }
 
-.header-name input[type="range"],
-.header-title input[type="range"] {
+[type="range"],
+[type="range"] {
   width: 100%;
 }
