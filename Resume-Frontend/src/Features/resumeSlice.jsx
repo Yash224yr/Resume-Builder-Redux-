@@ -44,6 +44,7 @@ export const resumeSlice = createSlice({
             titlecolor:"",
             contactsize : "",
             accounts : [],
+            tagstyle : "",
         }
 
 

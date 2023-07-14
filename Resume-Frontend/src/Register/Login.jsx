@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { updateloginEmail, updateloginPassword, updateuser } from '../Features/resumeSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import GoogleIcon from '@mui/icons-material/Google';
@@ -15,17 +15,19 @@ function Login() {
   const inputRef = useRef()
 
   const { email, password } = useSelector(state => state.resume.login)
-  const {username} = useSelector(state => state.resume.user)
+  const { username } = useSelector(state => state.resume.user)
 
 
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  
+
 
   useEffect(() => {
     inputRef.current.focus()
   }, [])
+
 
 
   function handlersubmit(e) {
@@ -63,11 +65,14 @@ function Login() {
       })
       .catch((err) => {
         console.log(err)
+        setError("* Invalid UserName or Password")
+        dispatch(updateloginPassword(""))
       })
   }
 
   function handlerdone() {
     setPopUp("")
+    navigate("/resume")
   }
 
   return (

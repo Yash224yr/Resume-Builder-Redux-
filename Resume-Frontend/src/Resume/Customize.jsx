@@ -9,7 +9,7 @@ function Customize() {
   const [show, setShow] = useState("");
   const [swtich, setSwitch] = useState("")
   const { pad, back } = useSelector(state => state.resume.resumecustom)
-  const { textsize, titlesize, contactsize } = useSelector(state => state.resume.infoCustomize)
+  const { textsize, titlesize, contactsize  } = useSelector(state => state.resume.infoCustomize)
 
   const dispatch = useDispatch()
 
@@ -117,6 +117,23 @@ function Customize() {
     }
   ]
 
+  const style = [
+    {
+      id: "style1"
+    },
+    {
+      id: "style2"
+    },
+    {
+      id: "style3"
+    },
+    {
+      id: "style4"
+    },
+    {
+      id : "style5"
+    }
+  ]
 
 
 
@@ -157,6 +174,11 @@ function Customize() {
     setSwitch("name")
   }, [])
 
+  function handlerTagStyle(style){
+    dispatch(updateInfoCustom({ property: "tagstyle", value: (style) }))
+    
+  }
+
   console.log(swtich)
 
 
@@ -181,6 +203,18 @@ function Customize() {
                   dispatch(resumecustom({ property: "back", value: (e.target.value) }))
                 }
               ></input>
+            </ul>
+          </div>
+          <div className='tag-style' >
+            <h4 className='title' > Title Style :</h4>
+            <ul >
+              {
+                style.map((list, index) => {
+                  return (
+                    <li key={index} onClick={()=>{handlerTagStyle(list.id)}} > {list.id} </li>
+                  )
+                })
+              }
             </ul>
           </div>
         </div>
@@ -269,8 +303,8 @@ function Customize() {
           </div>
         </div>
       </div>
-    
-      
+
+
 
     </div>
   )
