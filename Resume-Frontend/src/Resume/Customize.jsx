@@ -176,7 +176,7 @@ function Customize() {
 
   function handlerTagStyle(style){
     dispatch(updateInfoCustom({ property: "tagstyle", value: (style) }))
-    
+      console.log("Hello")
   }
 
   console.log(swtich)
