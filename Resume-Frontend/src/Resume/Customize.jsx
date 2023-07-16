@@ -172,11 +172,11 @@ function Customize() {
 
   useEffect(() => {
     setSwitch("name")
+    console.log("Helo")
   }, [])
 
   function handlerTagStyle(style){
     dispatch(updateInfoCustom({ property: "tagstyle", value: (style) }))
-      console.log("Hello")
   }
 
   console.log(swtich)
