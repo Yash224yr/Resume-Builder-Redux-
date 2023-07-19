@@ -172,7 +172,6 @@ function Customize() {
 
   useEffect(() => {
     setSwitch("name")
-    console.log("Helo2")
   }, [])
 
   function handlerTagStyle(style){
