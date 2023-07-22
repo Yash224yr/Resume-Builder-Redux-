@@ -36,6 +36,9 @@ function Resume() {
                         <Customize></Customize>
                     )
                 }
+                <div className='save-button' >
+                    <button>Save</button>
+                </div>
             </div>
             <div className='section-2' >
                 <Template></Template>
