@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { updateUserInfo, updateInfoCustom } from '../Features/resumeSlice';
@@ -60,7 +61,23 @@ function Details() {
     });
     dispatch(updateInfoCustom({ property: 'accounts', value: updatedAccounts }));
   }
-  
+
+  useEffect(() => {
+    const username = localStorage.getItem('UserEmail');
+
+    axios
+      .get(`http://localhost:3000/getData?email=${username}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[]);
   
 
   return (

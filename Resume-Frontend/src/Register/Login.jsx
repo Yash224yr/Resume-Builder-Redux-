@@ -47,6 +47,7 @@ function Login() {
         dispatch(updateloginPassword(""))
         setPopUp(response.data.message)
         localStorage.setItem("token", response.data.token)
+        localStorage.setItem("UserEmail" , email)
         axios
           .get(`http://localhost:3000/user?email=${email}`, {
             headers: {
