@@ -34,6 +34,7 @@ function Header() {
         localStorage.clear()
         dispatch(updateuser(""))
         navigate("/")
+        window.location.reload()
     }
 
     return (

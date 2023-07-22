@@ -73,6 +73,12 @@ function Details() {
       })
       .then((response) => {
         console.log(response.data);
+        dispatch(updateUserInfo({ property: 'Name', value: (response.data.Name) }))
+        dispatch(updateUserInfo({ property: 'Title', value: (response.data.Title) }))
+        dispatch(updateUserInfo({ property: 'Email', value: (response.data.Email) }))
+        dispatch(updateUserInfo({ property: 'Number', value: (response.data.Number) }))
+        dispatch(updateUserInfo({ property: 'Location', value: (response.data.Location) }))
+        dispatch(updateUserInfo({ property: 'abouttext', value: (response.data.abouttext) }))
       })
       .catch((err) => {
         console.log(err);

@@ -37,8 +37,6 @@ function Templateone() {
                         {
                             accounts.map((list, index) => {
                                 const [name, url] = list.split(":-")
-                                console.log(name)
-                                console.log(url)
                                 return (
                                     <li key={index}><span>{name + " " + ":"}</span> {url} </li>
                                 )
