@@ -101,12 +101,14 @@ function Resume() {
                 dispatch(updateInfoCustom({ property: "textcolor", value: (response.data.TextColor) }))
                 dispatch(updateInfoCustom({ property: "textsize", value: (response.data.TextSize) }))
                 dispatch(updateInfoCustom({ property: "textalign", value: (response.data.TextAlign) }))
+                dispatch(updateInfoCustom({ property: 'accounts', value: (response.data.Accounts) }));
             })
             .catch((err) => {
                 console.log(err);
             });
     }, []);
 
+    console.log(accounts)
 
     return (
         <div className='resume' >
