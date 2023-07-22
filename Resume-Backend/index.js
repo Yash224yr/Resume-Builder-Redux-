@@ -92,6 +92,60 @@ app.get('/user', (req, res) => {
     });
 });
 
+app.post("/update", async (req, res) => {
+  const { Name, Title, Email, Number, Location, abouttext, padding, background, TextAlign, TextColor, TextSize, TextFont, Titlealign, TitleColor, TitleSize,
+    ContactSize, Accounts, Tagstyle
+  } = req.body;
+  const token = req.headers.authorization?.split(" ")[1];
+  try {
+    // Verify the token
+    jwt.verify(token, "your-secret-key", async (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ message: "Invalid token" });
+      }
+
+      const { email } = decoded;
+
+      // Find the user
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      user.Name = Name;
+      user.Title = Title;
+      user.Email = Email;
+      user.Number = Number;
+      user.Location = Location;
+      user.abouttext = abouttext;
+      user.padding = padding,
+      user.Background = background,
+      user.TextAlign = TextAlign,
+      user.TextColor = TextColor,
+      user.TextSize = TextSize,
+      user.TextFont = TextFont,
+      user.Titlealign = Titlealign,
+      user.TitleSize = TitleSize,
+      user.TitleColor = TitleColor,
+      user.ContactSize = ContactSize,
+      user.Accounts = Accounts,
+      user.Tagstyle = Tagstyle,
+
+        // Save the updated user
+        await user.save();
+
+      res.status(200).json({ message: "User updated successfully" });
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
+
+
+
 
 app.listen(3000, () => {
   console.log("Server connected to port 3000");

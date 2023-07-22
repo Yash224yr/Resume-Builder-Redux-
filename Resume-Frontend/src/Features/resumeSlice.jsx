@@ -35,7 +35,7 @@ export const resumeSlice = createSlice({
         },
 
         infoCustomize: {
-            textaligh : "",
+            textalign : "",
             textcolor : "",
             textsize : "",
             textfont : "",
@@ -46,9 +46,6 @@ export const resumeSlice = createSlice({
             accounts : [],
             tagstyle : "",
         }
-
-
-      
 
     },
 

@@ -24,7 +24,6 @@ function Details() {
 
   const { accounts } = useSelector(state => state.resume.infoCustomize)
 
-    console.log(abouttext)
   function handlerShow(section) {
     setShow(show => (show === section ? "" : section))
   }
