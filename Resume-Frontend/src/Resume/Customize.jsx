@@ -166,7 +166,6 @@ function Customize() {
   }
 
   function handlerSwitch(show) {
-    console.log(show)
     setSwitch(show)
   }
 
@@ -178,7 +177,7 @@ function Customize() {
     dispatch(updateInfoCustom({ property: "tagstyle", value: (style) }))
   }
 
-  console.log(swtich)
+
 
 
   return (

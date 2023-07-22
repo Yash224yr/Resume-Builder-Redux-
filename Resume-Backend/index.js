@@ -145,7 +145,7 @@ app.post("/update", async (req, res) => {
 app.get("/getData", (req, res) => {
   const { email } = req.query;
   User.findOne({ email })
-    .select(" Name Title Email Number Location abouttext padding background TextAlign TextColor TextSize TextFont Titlealign TitleColor TitleSize ContactSize Accounts Tagstyle")
+    .select(" Name Title Email Number Location abouttext padding Background TextAlign TextColor TextSize TextFont Titlealign TitleColor TitleSize ContactSize Accounts Tagstyle")
     .then(user => {
       if (!user) {
         return res.status(404).json({ error: "User Not Found" })
