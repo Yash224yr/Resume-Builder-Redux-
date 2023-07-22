@@ -120,17 +120,17 @@ app.post("/update", async (req, res) => {
       user.Location = Location;
       user.abouttext = abouttext;
       user.padding = padding,
-      user.Background = background,
-      user.TextAlign = TextAlign,
-      user.TextColor = TextColor,
-      user.TextSize = TextSize,
-      user.TextFont = TextFont,
-      user.Titlealign = Titlealign,
-      user.TitleSize = TitleSize,
-      user.TitleColor = TitleColor,
-      user.ContactSize = ContactSize,
-      user.Accounts = Accounts,
-      user.Tagstyle = Tagstyle,
+        user.Background = background,
+        user.TextAlign = TextAlign,
+        user.TextColor = TextColor,
+        user.TextSize = TextSize,
+        user.TextFont = TextFont,
+        user.Titlealign = Titlealign,
+        user.TitleSize = TitleSize,
+        user.TitleColor = TitleColor,
+        user.ContactSize = ContactSize,
+        user.Accounts = Accounts,
+        user.Tagstyle = Tagstyle,
 
         // Save the updated user
         await user.save();
@@ -142,6 +142,40 @@ app.post("/update", async (req, res) => {
   }
 });
 
+app.get("/getData", (req, res) => {
+  const { email } = req.query;
+  User.findOne({ email })
+    .select(" Name Title Email Number Location abouttext padding background TextAlign TextColor TextSize TextFont Titlealign TitleColor TitleSize ContactSize Accounts Tagstyle")
+    .then(user => {
+      if (!user) {
+        return res.status(404).json({ error: "User Not Found" })
+      }
+      const UserData = {
+        Name: user.Name,
+        Title: user.Title,
+        Email: user.Email,
+        Number: user.Number,
+        Location: user.Location,
+        abouttext: user.abouttext,
+        padding: user.padding,
+        Background: user.Background,
+        TextAlign: user.TextAlign,
+        TextColor: user.TextColor,
+        TextSize: user.TextSize,
+        TextFont: user.TextFont,
+        Titlealign: user.Titlealign,
+        TitleSize: user.TitleSize,
+        TitleColor: user.TitleColor,
+        ContactSize: user.ContactSize,
+        Accounts: user.Accounts,
+        Tagstyle: user.Tagstyle,
+      };
+      res.status(200).json(UserData)
+    })
+    .catch(error => {
+      res.status(500).json({ error: 'Internal server error' });
+    });
+})
 
 
 
