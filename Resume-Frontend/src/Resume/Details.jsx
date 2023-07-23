@@ -15,7 +15,7 @@ function Details() {
   const [accounturl, setAccountUrl] = useState("")
   const [accountCheck, setAccountCheck] = useState(false)
   const [accountIndex, setAccountIndex] = useState("")
-  const [skill , setSkill] = useState("")
+  const [skill, setSkill] = useState("")
 
   const dispatch = useDispatch()
   const { Name,
@@ -49,12 +49,14 @@ function Details() {
       }
     }
 
-    if(list === "skills"){
-      
+    if (list === "skills") {
+      dispatch(updateSKills({ property: "skillslist", value: [...skillslist, skill] }))
+      setSkill("")
     }
 
   }
 
+  console.log(skillslist)
 
   function handleredit(list, index) {
     setAccountCheck(!accountCheck)
@@ -73,7 +75,7 @@ function Details() {
 
 
 
-console.log(skill)
+  console.log(skill)
   return (
     <div className="details">
       <div className="info">
@@ -119,8 +121,8 @@ console.log(skill)
       <div className='info' >
         <h1 onClick={() => handlerShow("skills")} className={show === "skills" ? "active" : ""} >Skills {show === "skills" ? (<KeyboardArrowUpIcon />) : (<KeyboardArrowDownIcon />)}</h1>
         <div className={`form ${show == "skills" ? "show" : ""}`} >
-          <form onSubmit={(e)=>{Accountsubmit(e , "skills")}} >
-            <input type="text" placeholder='Enter Your Skills' value={skill} onChange={(e) => { setSkill(e.target.value)}} />
+          <form onSubmit={(e) => { Accountsubmit(e, "skills") }} >
+            <input type="text" placeholder='Enter Your Skills' value={skill} onChange={(e) => { setSkill(e.target.value) }} />
             <button type='submit' className='detail-save' >Save</button>
           </form>
         </div>

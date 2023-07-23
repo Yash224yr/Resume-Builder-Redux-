@@ -9,7 +9,9 @@ function Templateone() {
 
     const { Name, Title, Email, Number, Location, abouttext } = useSelector(state => state.resume.UserInfo)
     const { pad, back } = useSelector(state => state.resume.resumecustom)
-    const { textalign, textcolor, textsize, textfont, titlealign, titlesize, titlecolor, contactsize, accounts , tagstyle } = useSelector(state => state.resume.infoCustomize)
+    const { textalign, textcolor, textsize, textfont, titlealign, titlesize, titlecolor, contactsize, accounts, tagstyle } = useSelector(state => state.resume.infoCustomize)
+    const { skillslist } = useSelector(state => state.resume.resumeSkills)
+
 
     return (
         <div className='template-1' style={{ padding: pad ? pad + "px" : "20px", backgroundColor: back ? back : "rgb(255, 255, 255)" }}>
@@ -46,13 +48,33 @@ function Templateone() {
                 </div>
             </div>
             {
-                abouttext && 
+                abouttext &&
                 <div className='template-about' >
-                    <div  className={ tagstyle ? tagstyle : "style1" } >
+                    <div className={tagstyle ? tagstyle : "style1"} >
                         <h1>About</h1>
                     </div>
                     <div className='about ' >
                         <p>{abouttext}</p>
+                    </div>
+                </div>
+            }
+            {
+                skillslist.length > 0 &&
+                <div className='template-skills' >
+                    <div className={tagstyle ? tagstyle : "style1"} >
+                        <h1>Skills</h1>
+                    </div>
+                    <div className='skill-list' >
+                        <ul>
+                            {
+                                skillslist.map((list , index)=>{
+                                    return (
+                                        <li key={index} >{list}</li>
+                                    )
+                                })
+                            }
+                        </ul>
+
                     </div>
                 </div>
             }

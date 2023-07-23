@@ -94,7 +94,7 @@ export const resumeSlice = createSlice({
 
         },
 
-        updateSKills : (state , actions) =>{
+        updateSKills : (state , action) =>{
             const {property , value} = action.payload
             state. resumeSkills[property] = value;
         }
