@@ -16,6 +16,8 @@ function Details() {
   const [accountCheck, setAccountCheck] = useState(false)
   const [accountIndex, setAccountIndex] = useState("")
   const [skill, setSkill] = useState("")
+  const [skillCheck, setSkillCheck] = useState(false)
+  const [skillIndex , setSkillIndex] = useState("")
 
   const dispatch = useDispatch()
   const { Name,
@@ -50,8 +52,15 @@ function Details() {
     }
 
     if (list === "skills") {
-      dispatch(updateSKills({ property: "skillslist", value: [...skillslist, skill] }))
-      setSkill("")
+      if (skillCheck === false && skill.length > 0) {
+        dispatch(updateSKills({ property: "skillslist", value: [...skillslist, skill] }))
+        setSkill("")
+      }
+      else{
+        
+          dispatch(updateSKills)
+      }
+
     }
 
   }
