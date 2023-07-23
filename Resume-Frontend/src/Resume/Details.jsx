@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { updateUserInfo, updateInfoCustom } from '../Features/resumeSlice';
+import { updateUserInfo, updateInfoCustom, updateSKills } from '../Features/resumeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -15,35 +15,44 @@ function Details() {
   const [accounturl, setAccountUrl] = useState("")
   const [accountCheck, setAccountCheck] = useState(false)
   const [accountIndex, setAccountIndex] = useState("")
+  const [skill , setSkill] = useState("")
 
   const dispatch = useDispatch()
   const { Name,
     Title,
     Email,
     Number,
-    Location , abouttext } = useSelector(state => state.resume.UserInfo)
+    Location, abouttext } = useSelector(state => state.resume.UserInfo)
 
   const { accounts } = useSelector(state => state.resume.infoCustomize)
+  const { skillslist } = useSelector(state => state.resume.resumeSkills)
 
   function handlerShow(section) {
     setShow(show => (show === section ? "" : section))
   }
 
-  function Accountsubmit(e) {
+  function Accountsubmit(e, list) {
     e.preventDefault();
-    if (accountCheck === false && accountlist.length > 0 && accounturl.length > 0) {
-      dispatch(updateInfoCustom({ property: 'accounts', value: [...accounts, `${accountlist}:- ${accounturl}`] }));
-      setAccountList("");
-      setAccountUrl("")
+    if (list === "accounts") {
+      if (accountCheck === false && accountlist.length > 0 && accounturl.length > 0) {
+        dispatch(updateInfoCustom({ property: 'accounts', value: [...accounts, `${accountlist}:- ${accounturl}`] }));
+        setAccountList("");
+        setAccountUrl("")
+      }
+      else if (accountCheck === true) {
+        const updatedAccounts = [...accounts];
+        updatedAccounts[accountIndex] = `${accountlist} :- ${accounturl}`;
+        dispatch(updateInfoCustom({ property: 'accounts', value: updatedAccounts }));
+        setAccountList("");
+        setAccountUrl("")
+        setAccountCheck(!accountCheck)
+      }
     }
-    else if (accountCheck === true) {
-      const updatedAccounts = [...accounts];
-      updatedAccounts[accountIndex] = `${accountlist} :- ${accounturl}`;
-      dispatch(updateInfoCustom({ property: 'accounts', value: updatedAccounts }));
-      setAccountList("");
-      setAccountUrl("")
-      setAccountCheck(!accountCheck)
+
+    if(list === "skills"){
+      
     }
+
   }
 
 
@@ -63,8 +72,8 @@ function Details() {
   }
 
 
-  
 
+console.log(skill)
   return (
     <div className="details">
       <div className="info">
@@ -82,7 +91,7 @@ function Details() {
       <div className='info' >
         <h1 onClick={() => handlerShow("account")} className={show === "account" ? "active" : ""}  > Accounts {show === "account" ? (<KeyboardArrowUpIcon />) : (<KeyboardArrowDownIcon />)}</h1>
         <div className={`form ${show === "account" ? 'show' : ''}`}>
-          <form onSubmit={Accountsubmit} >
+          <form onSubmit={(e) => { Accountsubmit(e, "accounts") }} >
             <input type="text" placeholder='Enter Acount Name' value={accountlist} onChange={(e) => { setAccountList(e.target.value) }} />
             <input type="text" placeholder='Enter URL ' value={accounturl} onChange={(e) => { setAccountUrl(e.target.value) }} />
             <button type='submit' className='detail-save' >Save</button>
@@ -90,7 +99,7 @@ function Details() {
               {
                 accounts.map((list, index) => {
                   return (
-                    <li key={index}>{list} <span><EditIcon onClick={() => { handleredit(list, index) }} ></EditIcon> <DeleteIcon onClick={()=>{handlerdelete(index)}} ></DeleteIcon>  </span>  </li>
+                    <li key={index}>{list} <span><EditIcon onClick={() => { handleredit(list, index) }} ></EditIcon> <DeleteIcon onClick={() => { handlerdelete(index) }} ></DeleteIcon>  </span>  </li>
                   )
                 })
               }
@@ -107,6 +116,18 @@ function Details() {
         </div>
 
       </div>
+      <div className='info' >
+        <h1 onClick={() => handlerShow("skills")} className={show === "skills" ? "active" : ""} >Skills {show === "skills" ? (<KeyboardArrowUpIcon />) : (<KeyboardArrowDownIcon />)}</h1>
+        <div className={`form ${show == "skills" ? "show" : ""}`} >
+          <form onSubmit={(e)=>{Accountsubmit(e , "skills")}} >
+            <input type="text" placeholder='Enter Your Skills' value={skill} onChange={(e) => { setSkill(e.target.value)}} />
+            <button type='submit' className='detail-save' >Save</button>
+          </form>
+        </div>
+
+      </div>
+
+
     </div>
   );
 }

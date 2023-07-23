@@ -108,7 +108,7 @@ function Resume() {
             });
     }, []);
 
-    console.log(accounts)
+
 
     return (
         <div className='resume' >

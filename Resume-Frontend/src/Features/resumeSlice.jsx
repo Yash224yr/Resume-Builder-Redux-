@@ -45,6 +45,9 @@ export const resumeSlice = createSlice({
             contactsize : "",
             accounts : [],
             tagstyle : "",
+        },
+        resumeSkills :{
+            skillslist  : []
         }
 
     },
@@ -89,6 +92,11 @@ export const resumeSlice = createSlice({
             const {property , value } = action.payload
             state. infoCustomize[property] = value;
 
+        },
+
+        updateSKills : (state , actions) =>{
+            const {property , value} = action.payload
+            state. resumeSkills[property] = value;
         }
 
        
@@ -97,7 +105,8 @@ export const resumeSlice = createSlice({
 })
 
 export const {
-    updateEmail, updatePassword, updateName, updateloginEmail, updateloginPassword, updateuser, updateUserInfo  , resumecustom , updateInfoCustom
+    updateEmail, updatePassword, updateName, updateloginEmail, updateloginPassword, updateuser, updateUserInfo  , resumecustom , updateInfoCustom,
+    updateSKills
 } = resumeSlice.actions
 
 export default resumeSlice.reducer
