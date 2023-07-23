@@ -10,7 +10,7 @@ function Templateone() {
     const { Name, Title, Email, Number, Location, abouttext } = useSelector(state => state.resume.UserInfo)
     const { pad, back } = useSelector(state => state.resume.resumecustom)
     const { textalign, textcolor, textsize, textfont, titlealign, titlesize, titlecolor, contactsize, accounts, tagstyle } = useSelector(state => state.resume.infoCustomize)
-    const { skillslist } = useSelector(state => state.resume.resumeSkills)
+    const { skillslist , skillstyle} = useSelector(state => state.resume.resumeSkills)
 
 
     return (
@@ -69,7 +69,7 @@ function Templateone() {
                             {
                                 skillslist.map((list , index)=>{
                                     return (
-                                        <li key={index} >{list}</li>
+                                        <li key={index} className={ skillstyle ? skillstyle : "skill-style1" } >{list}</li>
                                     )
                                 })
                             }

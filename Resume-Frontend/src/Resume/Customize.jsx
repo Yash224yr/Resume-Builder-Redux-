@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AutoFixNormalIcon from '@mui/icons-material/AutoFixNormal';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
-import { resumecustom, updateInfoCustom } from '../Features/resumeSlice';
+import { resumecustom, updateInfoCustom , updateSKills} from '../Features/resumeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 function Customize() {
@@ -9,7 +9,7 @@ function Customize() {
   const [show, setShow] = useState("");
   const [swtich, setSwitch] = useState("")
   const { pad, back } = useSelector(state => state.resume.resumecustom)
-  const { textsize, titlesize, contactsize  } = useSelector(state => state.resume.infoCustomize)
+  const { textsize, titlesize, contactsize } = useSelector(state => state.resume.infoCustomize)
 
   const dispatch = useDispatch()
 
@@ -131,8 +131,17 @@ function Customize() {
       id: "style4"
     },
     {
-      id : "style5"
+      id: "style5"
     }
+  ]
+
+  const SkillStyle = [
+    {
+      id: "skill-style1"
+    },
+    {
+      id: "skill-style2"
+    },
   ]
 
 
@@ -173,8 +182,12 @@ function Customize() {
     setSwitch("name")
   }, [])
 
-  function handlerTagStyle(style){
+  function handlerTagStyle(style) {
     dispatch(updateInfoCustom({ property: "tagstyle", value: (style) }))
+  }
+
+  function handlerTitleStyle(style) {
+    dispatch(updateSKills({property: "skillstyle" , value: (style)}))
   }
 
 
@@ -209,7 +222,7 @@ function Customize() {
               {
                 style.map((list, index) => {
                   return (
-                    <li key={index} onClick={()=>{handlerTagStyle(list.id)}} > {list.id} </li>
+                    <li key={index} onClick={() => { handlerTagStyle(list.id) }} > {list.id} </li>
                   )
                 })
               }
@@ -301,7 +314,23 @@ function Customize() {
           </div>
         </div>
       </div>
-
+      <div className='info' >
+        <h1 onClick={() => handlerShow("skills")} className={show === "skills" ? "active" : ""}  >  Skills  {show === "skills" ? <AutoFixHighIcon /> : <AutoFixNormalIcon />}</h1>
+        <div className={`form ${show === "skills" ? 'show' : ''}`}>
+          <div className='tag-style' >
+            <h4 className='title' > Title Style :</h4>
+            <ul >
+              {
+                SkillStyle.map((list, index) => {
+                  return (
+                    <li key={index} onClick={() => { handlerTitleStyle(list.id) }} > {list.id} </li>
+                  )
+                })
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
 
 
     </div>

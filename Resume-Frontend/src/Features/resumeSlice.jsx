@@ -47,7 +47,8 @@ export const resumeSlice = createSlice({
             tagstyle : "",
         },
         resumeSkills :{
-            skillslist  : []
+            skillslist  : [],
+            skillstyle : ""
         }
 
     },
